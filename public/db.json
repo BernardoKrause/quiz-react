@@ -3,12 +3,12 @@
     [
         {
             "id" : "1",
-            "pergunta" : "Pergunta?",
+            "pergunta" : "Qual desses não faz parte do folclore brasileiro?",
             "respostas" : [
-                "sim",
-                "não",
-                "wtf",
-                "kkkkk"
+                "Saci",
+                "Boitátá",
+                "Deméter",
+                "Iara"
             ]
         },
         {

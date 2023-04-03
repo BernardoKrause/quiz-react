@@ -1,3 +1,19 @@
+.App {
+  box-shadow: 2px 4px 8px 0px rgba(0, 0, 0, 0.568);
+  min-width: 480px;
+  max-width: 520px;
+  padding: 12px;
+  border-radius: 1em;
+  background-color: rgb(43, 39, 48);
+}
+
+.perguntas {
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  font-size: 1.3em;
+}
+
 .respostas {
   display: flex;
   flex-direction: column;

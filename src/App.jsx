@@ -20,21 +20,22 @@ function App() {
   },[])
 
   //const {id,pergunta,resposta} = perguntas[0];
-  /*const verifyAnswer = (i) => {
-    setPergunta(perguntas[0]);
-    if (i === 0 || pergunta === perguntas[0]) {
-      console.log("resposta correta!");
+  const verifyAnswer = (i) => {
+    if (i === 2) {
+      console.log("Correto!")
     }
-  }*/
+  }
 
   return (
     <div className="App">
-      <h1 className="pergunta"></h1>
       <div className="perguntas">
         {perguntas.length > 0 ? <p>{perguntas[0].pergunta}</p> : <p>aasd</p>}
       </div>
       <div className="respostas">
-      {perguntas.length > 0 ? perguntas[0].respostas.map((resposta) => <button>{resposta}</button>) : <p>asda</p>}
+      {perguntas.length > 0 ? perguntas[0].respostas.map(
+        (resposta, i) => <button onClick={() => {
+          verifyAnswer(i)
+        }}>{resposta}</button>) : <p>asda</p>}
       </div>
     </div>
   )

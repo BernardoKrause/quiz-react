@@ -4,6 +4,7 @@ import './App.css'
 
 function App() {
   const [perguntas, setPerguntas] = useState([]);
+  const [count, setCount] = useState(0);
   const [stat, setStat] = useState(false);
   
   const getData = () => {
@@ -20,34 +21,29 @@ function App() {
     getData();
   },[])
 
-  const changeQuestions = () => {
-    // alterar lógica da variavel i 
-    let i = 0;
-    if (stat === true) {
-      i++;
-    }
-    return i
-  }
-
   const verifyAnswer = (i) => {
-    let question = changeQuestions();
+    let question = count;
     if (question === 0 && i === 2) {
-      setStat(true);
+      setCount(count + 1);
+    } else if(question === 1 && i === 0) {
+      setCount(count + 1);
+    } else if(question === 2 && i === 3) {
+      setCount(count + 1);
     } else {
-      
+      setCount(0);
     }
   }
 
   return (
     <div className="App" >
       <div className="perguntas">
-        {perguntas.length > 0 ? <p>{perguntas[changeQuestions()].pergunta}</p> : <p>Loading</p>}
+        {perguntas.length > 0 ? <p>{perguntas[count].pergunta}</p> : <p>Loading...</p>}
       </div>
       <div className="respostas">
-      {perguntas.length > 0 ? perguntas[changeQuestions()].respostas.map(
+      {perguntas.length > 0 ? perguntas[count].respostas.map(
         (resposta, i) => <button key={i} onClick={() => {
           verifyAnswer(i);
-        }}>{resposta}</button>) : <p>Loading</p>}
+        }}>{resposta}</button>) : <p>Loading...</p>}
       </div>
     </div>
   )

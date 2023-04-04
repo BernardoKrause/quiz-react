@@ -13,22 +13,22 @@
         },
         {
             "id" : "2",
-            "pergunta" : "Porque você é assim?",
+            "pergunta" : "Como se representa o número 10 em binário?",
             "respostas" : [
-                "pq sim",
-                "pq nao",
-                "wtf",
-                "doq vc esta falano"
+                "1010",
+                "1000",
+                "1001",
+                "111"
             ]
         },
         {
             "id" : "3",
-            "pergunta" : "Porque somos assim?",
+            "pergunta" : "Qual função deve ser utilizada ao incluir um servidor HTTP no módulo Node.js",
             "respostas" : [
-                "pq nao",
-                "pq sim",
-                "doq vc esta falano",
-                "wtf"
+                "createServer()",
+                "post()",
+                "get()",
+                "require()"
             ]
         }
     ]

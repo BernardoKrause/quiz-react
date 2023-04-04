@@ -4,6 +4,7 @@ import './App.css'
 
 function App() {
   const [perguntas, setPerguntas] = useState([]);
+  const [stat, setStat] = useState(false);
   
   const getData = () => {
       fetch('../public/db.json', {
@@ -19,23 +20,34 @@ function App() {
     getData();
   },[])
 
-  //const {id,pergunta,resposta} = perguntas[0];
+  const changeQuestions = () => {
+    // alterar lógica da variavel i 
+    let i = 0;
+    if (stat === true) {
+      i++;
+    }
+    return i
+  }
+
   const verifyAnswer = (i) => {
-    if (i === 2) {
-      console.log("Correto!")
+    let question = changeQuestions();
+    if (question === 0 && i === 2) {
+      setStat(true);
+    } else {
+      
     }
   }
 
   return (
-    <div className="App">
+    <div className="App" >
       <div className="perguntas">
-        {perguntas.length > 0 ? <p>{perguntas[0].pergunta}</p> : <p>aasd</p>}
+        {perguntas.length > 0 ? <p>{perguntas[changeQuestions()].pergunta}</p> : <p>Loading</p>}
       </div>
       <div className="respostas">
-      {perguntas.length > 0 ? perguntas[0].respostas.map(
-        (resposta, i) => <button onClick={() => {
-          verifyAnswer(i)
-        }}>{resposta}</button>) : <p>asda</p>}
+      {perguntas.length > 0 ? perguntas[changeQuestions()].respostas.map(
+        (resposta, i) => <button key={i} onClick={() => {
+          verifyAnswer(i);
+        }}>{resposta}</button>) : <p>Loading</p>}
       </div>
     </div>
   )

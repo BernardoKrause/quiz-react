@@ -13,8 +13,23 @@
         },
         {
             "id" : "2",
-            "pergunta" : "Porque você é assim2",
-            "respostas" : "asda"
+            "pergunta" : "Porque você é assim?",
+            "respostas" : [
+                "pq sim",
+                "pq nao",
+                "wtf",
+                "doq vc esta falano"
+            ]
+        },
+        {
+            "id" : "3",
+            "pergunta" : "Porque somos assim?",
+            "respostas" : [
+                "pq nao",
+                "pq sim",
+                "doq vc esta falano",
+                "wtf"
+            ]
         }
     ]
 }

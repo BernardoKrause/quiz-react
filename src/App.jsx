@@ -1,50 +1,33 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import './App.css'
+import Game from './components/Quiz';
+import End from './components/End';
+import Start from './components/Start';
 
+const stages = [
+  {id: 1, name: 'start'},
+  {id: 2, name: 'quiz'},
+  {id: 3, name: 'end'}
+]
 
 function App() {
-  const [perguntas, setPerguntas] = useState([]);
-  const [count, setCount] = useState(0);
-  const [stat, setStat] = useState(false);
-  
-  const getData = () => {
-      fetch('../public/db.json', {
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': "application/json"
-        }
-      }).then(res => res.json())
-      .then(res => setPerguntas(res.perguntas))
-  }
+  const [screen, setScreen] = useState(stages[0].name);
 
-  useEffect(() => {
-    getData();
-  },[])
-
-  const verifyAnswer = (i) => {
-    let question = count;
-    if (question === 0 && i === 2) {
-      setCount(count + 1);
-    } else if(question === 1 && i === 0) {
-      setCount(count + 1);
-    } else if(question === 2 && i === 3) {
-      setCount(count + 1);
+  const changeGameStage = () => {
+    if (screen === stages[0].name) {
+      setScreen(stages[1].name);
+    } else if (screen === stages[1].name) {
+      setScreen(stages[2].name);
     } else {
-      setCount(0);
+      setScreen(stages[0].name);
     }
   }
 
   return (
     <div className="App" >
-      <div className="perguntas">
-        {perguntas.length > 0 ? <p>{perguntas[count].pergunta}</p> : <p>Loading...</p>}
-      </div>
-      <div className="respostas">
-      {perguntas.length > 0 ? perguntas[count].respostas.map(
-        (resposta, i) => <button key={i} onClick={() => {
-          verifyAnswer(i);
-        }}>{resposta}</button>) : <p>Loading...</p>}
-      </div>
+      {screen === 'start' && <Start changeGameStage={changeGameStage} />}
+      {screen === 'quiz' &&  <Game changeGameStage={changeGameStage} />}
+      {screen === 'end' && <End changeGameStage={changeGameStage} />}
     </div>
   )
 }

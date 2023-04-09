@@ -7,15 +7,4 @@
   background-color: rgb(43, 39, 48);
 }
 
-.perguntas {
-  display: flex;
-  justify-content: center;
-  text-align: left;
-  font-size: 1.3em;
-}
 
-.respostas {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}

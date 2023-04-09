@@ -1,0 +1,11 @@
+.Start {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+}
+
+.Start p {
+    margin: 0 4em;
+}

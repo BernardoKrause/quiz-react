@@ -1,4 +1,5 @@
 import React from 'react'
+import './Start.css'
 
 const Start = ( {changeGameStage} ) => {
   return (
